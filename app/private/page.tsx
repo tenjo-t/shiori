@@ -18,7 +18,7 @@ export default async function Page() {
 	return (
 		<main className="flex-1 w-full flex flex-col gap-8">
 			<h1 className="font-bold text-4xl mb-4">Bookmark</h1>
-			<div className="grid grid-rows-shiori grid-cols-shiori gap-4 justify-center">
+			<div className="grid grid-cols-shiori gap-4 justify-center">
 				{data?.map((p) => (
 					<Shiori key={p.url} {...p} />
 				))}

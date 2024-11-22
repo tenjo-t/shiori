@@ -12,8 +12,7 @@ const config = {
 			gridTemplateColumns: {
 				shiori: "repeat(auto-fit, 11rem)",
 			},
-			gridTemplateRows: {
-				shiori: "4rem 10rem auto auto auto",
+			gridColumn: {
 				inherit: "inherit",
 			},
 			gridRow: {
