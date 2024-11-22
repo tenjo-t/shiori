@@ -22,7 +22,7 @@ type OGP = {
 	canonical?: string;
 };
 
-function parseOGP(html: string) {
+function parseOGP(html: string, url: string) {
 	const ogp: OGP = {};
 	let isTitle = false;
 	const parser = new Parser({
@@ -113,6 +113,10 @@ function parseOGP(html: string) {
 				favicon.url = f.href;
 			}
 		}
+
+		if (favicon.url && !favicon.url.startsWith("http")) {
+			favicon.url = new URL(favicon.url, url).href;
+		}
 	}
 
 	return {
@@ -147,7 +151,7 @@ export async function addBookmark(formData: FormData) {
 		);
 	}
 
-	const ogp = parseOGP(await res.text());
+	const ogp = parseOGP(await res.text(), url);
 
 	{
 		const { error } = await supabase.from("bookmark").insert({
