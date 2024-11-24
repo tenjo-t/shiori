@@ -10,7 +10,7 @@ const config = {
 	theme: {
 		extend: {
 			gridTemplateColumns: {
-				shiori: "repeat(auto-fit, 11rem)",
+				shiori: "repeat(auto-fit, 10rem)",
 			},
 			gridColumn: {
 				inherit: "inherit",
